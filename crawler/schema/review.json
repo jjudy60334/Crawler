@@ -1,0 +1,18 @@
+{
+    "activity_id": "int",
+    "author": "str",
+    "author_id": "int",
+    "author_name": "str",
+    "avatar": "str",
+    "content": "str",
+    "content_language": "str",
+    "date": "datetime",
+    "has_liked": "bool",
+    "like_count": "int",
+    "package_name": "str",
+    "review_id": "int",
+    "score": "int",
+    "ticket_id": "int",
+    "translate_content": "str",
+    "translate_language": "str"
+}

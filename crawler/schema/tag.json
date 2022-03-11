@@ -1,0 +1,8 @@
+{
+    "activity_id": "int",
+    "key": "str",
+    "background_color_left": "str",
+    "text_color": "str",
+    "background_color_right": "str",
+    "text": "str"
+}

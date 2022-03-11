@@ -1,0 +1,10 @@
+{
+    "image_id": "int",
+    "img_url": "str",
+    "img_resize_url": "str",
+    "width": "int",
+    "height": "int",
+    "published": "int",
+    "initial_publish": "int",
+    "review_id": "int"
+}

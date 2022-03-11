@@ -1,0 +1,74 @@
+// MongoDB Playground
+// Use Ctrl+Space inside a snippet or a stringing literal to trigger completions.
+
+const database = 'klook';
+const collection = 'reviews';
+
+// The current database to use.
+use(database);
+
+// Create a new collection.
+// db.activities.drop();
+
+db.review.drop();
+db.createCollection("review", {
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: ["review_id","activity_id"],
+         properties: {
+                    activity_id :{bsonType:"int"},
+                    author: {bsonType:"string"},
+                    author_id: {bsonType:"int"},
+                    author_name:  {bsonType:"string"},
+                    avatar:  {bsonType:"string"},
+                    content:  {bsonType:"string"},
+                    content_language:  {bsonType:"string"},
+                    date:  {bsonType:"date"},
+                    has_liked:  {bsonType:"bool"},
+                    like_count:  {bsonType:"int"},
+                    package_name: {bsonType:"string"},
+                    review_id:{bsonType:"int"},
+                    score: {bsonType:"int"},
+                    ticket_id:{bsonType:"int"},
+                    translate_content: {bsonType:"string"},
+                    translate_language: {bsonType:"string"},
+                    }
+         }
+         
+      }
+      , validationLevel: "moderate"
+   }
+   
+)
+db.review.createIndex({review_id:1},{unique:true});
+// The prototype form to create a regular collection:
+/* db.createCollection( <name>,
+  {
+    capped: <"bool"ean>,
+    autoIndexId: <"bool"ean>,
+    size: <number>,
+    max: <number>,
+    storageEngine: <document>,
+    validator: <document>,
+    validationLevel: <stringing>,
+    validationAction: <stringing>,
+    indexOptionDefaults: <document>,
+    viewOn: <stringing>,
+    pipeline: <pipeline>,
+    collation: <document>,
+    writeConcern: <document>
+  }
+) */
+
+// The prototype form to create a time-series collection:
+/* db.createCollection( <name>,
+  {
+    timeseries: {
+      timeField: <stringing>,
+      metaField: <stringing>,
+      granularity: <stringing>
+    },
+    expireAfterSeconds: <number>
+  }
+) */
