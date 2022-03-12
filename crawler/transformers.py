@@ -1,5 +1,5 @@
 
-from logger import LoggingMixin
+from crawler.logger import LoggingMixin
 from datetime import datetime
 import json
 

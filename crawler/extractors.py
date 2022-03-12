@@ -1,7 +1,7 @@
 
 import requests
 import json
-from logger import LoggingMixin
+from crawler.logger import LoggingMixin
 from abc import ABC, abstractmethod
 
 
@@ -32,7 +32,7 @@ class Crawler(LoggingMixin, ABC):
         page = 1
         data = craw_fun(page)
         extract_data.extend(transfer_fun(data))
-        while (get_content_count(data) > page * self._size):
+        while (int(get_content_count(data)) > page * self._size):
             page += 1
             data = craw_fun(page)
             extract_data.extend(transfer_fun(data))

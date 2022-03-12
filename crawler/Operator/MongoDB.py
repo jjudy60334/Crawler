@@ -1,6 +1,6 @@
 # import pandas as pd
 from pymongo import MongoClient
-from logger import LoggingMixin
+from crawler.logger import LoggingMixin
 
 
 class MongoOperator(LoggingMixin):
@@ -11,7 +11,7 @@ class MongoOperator(LoggingMixin):
 
     def _connect_mongo(self, host, port, username=None, password=None, db=None):
         """ A util for making a connection to mongo """
-        print(host, port, username, password, db)
+
         if username and password:
             mongo_uri = 'mongodb://%s:%s@%s:%s/%s' % (username, password, host, str(port), db)
             self._db = MongoClient(mongo_uri)

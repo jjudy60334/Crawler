@@ -2,7 +2,7 @@
 import pymongo
 from datetime import datetime
 
-from Operator.MongoDB import MongoOperator
+from crawler.Operator.MongoDB import MongoOperator
 
 myclient = pymongo.MongoClient("mongodb://host.docker.internal:27017")
 mydb = myclient["klook"]
@@ -16,8 +16,10 @@ mycol = mydb["activity_test"]
 
 
 class MonogoDBLoader(MongoOperator):
-    def __init__(self, host, port, db, username=None, password=None):
-        self._mongo_operator = self._connect_mongo(host, port, username, password, db)
+    def __init__(self, host, port, username, password, db):
+        self._mongo_operator = self._connect_mongo(
+            host=host, port=port, username=username, password=password, db=db)
+        print(host, port, username, password, db)
         super().__init__()
 
     def replace_many(self, collection_name, data_list, key):
